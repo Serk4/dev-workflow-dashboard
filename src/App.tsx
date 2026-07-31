@@ -1,7 +1,15 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import type { inferRouterOutputs } from '@trpc/server'
 import './App.css'
 import { trpc } from './lib/trpc'
+import type { AppRouter } from '../server/router'
+
+type RouterOutput = inferRouterOutputs<AppRouter>
+type Task = RouterOutput['task']['list'][number]
+type Recipe = RouterOutput['recipe']['list'][number]
+type Snippet = RouterOutput['snippet']['list'][number]
+type Activity = RouterOutput['activity']['list'][number]
 
 function App() {
   const [taskTitle, setTaskTitle] = useState('')
@@ -98,7 +106,7 @@ function App() {
           </button>
         </form>
         <ul>
-          {(tasksQuery.data ?? []).map((task) => (
+          {(tasksQuery.data ?? []).map((task: Task) => (
             <li key={task.id}>
               <label>
                 <input
@@ -136,7 +144,7 @@ function App() {
           </button>
         </form>
         <ul>
-          {(recipesQuery.data ?? []).map((recipe) => (
+          {(recipesQuery.data ?? []).map((recipe: Recipe) => (
             <li key={recipe.id}>
               <strong>{recipe.name}</strong>
               <p>{recipe.steps}</p>
@@ -167,7 +175,7 @@ function App() {
           </button>
         </form>
         <ul>
-          {(snippetsQuery.data ?? []).map((snippet) => (
+          {(snippetsQuery.data ?? []).map((snippet: Snippet) => (
             <li key={snippet.id}>
               <strong>{snippet.title}</strong>
               <pre>{snippet.content}</pre>
@@ -179,7 +187,7 @@ function App() {
       <section>
         <h2>Recent Activity</h2>
         <ul>
-          {(activityQuery.data ?? []).map((activity) => (
+          {(activityQuery.data ?? []).map((activity: Activity) => (
             <li key={activity.id}>{activity.message}</li>
           ))}
         </ul>
