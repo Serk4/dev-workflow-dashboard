@@ -1,309 +1,263 @@
-Product Requirements Document (PRD)
-Project: Dev Workflow Dashboard
-Owner: Serk4
-Last Updated: July 31, 2026
+# Product Requirements Document (PRD)
 
-1. Overview
-The Dev Workflow Dashboard is a small, modular web application designed to help engineers visualize, organize, and refine their personal development workflows. The primary purpose of this project is not the app itself, but the opportunity to practice modern software‑development methodologies using AI tools within VS Code, GitHub, and Copilot.
+**Project:** Dev Workflow Dashboard  
+**Owner:** Serk4  
+**Last Updated:** July 31, 2026
 
-The app provides a simple interface for managing tasks, workflow recipes, reusable snippets, and development activity logs. It serves as a practical sandbox for experimenting with AI‑assisted planning, scaffolding, refactoring, documentation, testing, and automation.
+## 1. Overview
 
-2. Problem Statement
-Modern development workflows involve many moving parts: tasks, snippets, patterns, documentation, and personal processes. Engineers often rely on ad‑hoc notes, scattered files, or memory. This leads to inefficiency and inconsistency.
+The Dev Workflow Dashboard is a small, modular web application designed to help engineers visualize, organize, and refine their personal development workflows. The primary purpose of this project is not the app itself, but the opportunity to practice modern software-development methodologies using AI tools within VS Code, GitHub, and Copilot.
 
-The Dev Workflow Dashboard provides a centralized, minimal interface for organizing these elements while giving the developer a structured project to practice AI‑assisted development methodologies.
+The app provides a simple interface for managing tasks, workflow recipes, reusable snippets, and development activity logs. It serves as a practical sandbox for experimenting with AI-assisted planning, scaffolding, refactoring, documentation, testing, and automation.
 
-3. Goals
-Primary Goals
-Provide a small, well‑scoped app suitable for practicing:
+## 2. Problem Statement
 
-PRD creation
+Modern development workflows involve many moving parts: tasks, snippets, patterns, documentation, and personal processes. Engineers often rely on ad-hoc notes, scattered files, or memory. This leads to inefficiency and inconsistency.
 
-architecture planning
+The Dev Workflow Dashboard provides a centralized, minimal interface for organizing these elements while giving the developer a structured project to practice AI-assisted development methodologies.
 
-AI‑assisted scaffolding
+## 3. Goals
 
-agent methodologies
+### Primary Goals
 
-GitHub workflows
+Provide a small, well-scoped app suitable for practicing:
 
-VS Code + Copilot workflows
-
-documentation generation
-
-automated testing
-
-iterative development
+- PRD creation
+- Architecture planning
+- AI-assisted scaffolding
+- Agent methodologies
+- GitHub workflows
+- VS Code + Copilot workflows
+- Documentation generation
+- Automated testing
+- Iterative development
 
 Create a dashboard that organizes:
 
-tasks
+- Tasks
+- Workflow recipes
+- Code snippets
+- Development activity logs
 
-workflow recipes
+### Secondary Goals
 
-code snippets
+- Optional GitHub API integration
+- Optional internal “helper agents” for generating workflow recipes or task breakdowns
+- Optional theme customization
 
-development activity logs
+## 4. Non-Goals
 
-Secondary Goals
-Optional GitHub API integration
-
-Optional internal “helper agents” for generating workflow recipes or task breakdowns
-
-Optional theme customization
-
-4. Non‑Goals
 These are intentionally not part of the project scope:
 
-Building a complex productivity app
+- Building a complex productivity app
+- Supporting multi-user accounts or collaboration
+- Implementing advanced AI features as core functionality
+- Creating a mobile app
+- Providing real-time sync or offline mode
+- Building a large backend system
 
-Supporting multi‑user accounts or collaboration
+> The project must remain small and manageable.
 
-Implementing advanced AI features as core functionality
+## 5. Users & Personas
 
-Creating a mobile app
+### Primary User
 
-Providing real‑time sync or offline mode
+**Individual Developer (You)**
 
-Building a large backend system
+- Wants a structured project to practice AI-assisted development
+- Prefers clean, minimal, professional interfaces
+- Values process-driven workflows
+- Uses React + Vite + Prisma
+- Works in VS Code with Copilot
+- Wants to refine personal development habits
 
-The project must remain small and manageable.
+### Secondary User (Optional)
 
-5. Users & Personas
-Primary User
-Individual Developer (You)
+**Other engineers exploring AI-assisted development**
 
-Wants a structured project to practice AI‑assisted development
+- May fork the repo
+- May use the dashboard to organize their own workflows
 
-Prefers clean, minimal, professional interfaces
+## 6. Core Features
 
-Values process‑driven workflows
+### 6.1 Task Manager
 
-Uses React + Vite + Prisma
+- Create tasks
+- Categorize tasks (frontend, backend, docs, testing, etc.)
+- Mark tasks complete
+- View task history
 
-Works in VS Code with Copilot
+### 6.2 Workflow Recipes
 
-Wants to refine personal development habits
+- Store reusable “recipes” for development tasks
+- Markdown-based
+- Examples:
+  - “How to scaffold a React component”
+  - “How to create a Prisma model”
+  - “How to write a PRD”
+  - “How to set up GitHub Actions”
 
-Secondary User (Optional)
-Other engineers exploring AI‑assisted development
+### 6.3 Snippet Library
 
-May fork the repo
+- Store reusable code snippets
+- Tag snippets (React, Prisma, SQL, Bash, etc.)
+- Copy-to-clipboard functionality
 
-May use the dashboard to organize their own workflows
+### 6.4 Activity Log / Timeline
 
-6. Core Features
-6.1 Task Manager
-Create tasks
+- Log completed tasks
+- Log commits (optional GitHub integration)
+- Log PR merges
+- Log notes
 
-Categorize tasks (frontend, backend, docs, testing, etc.)
+### 6.5 Optional GitHub Integration
 
-Mark tasks complete
+- Pull issues
+- Pull PRs
+- Pull commit history
 
-View task history
+### 6.6 Optional Internal Helper Agents
 
-6.2 Workflow Recipes
-Store reusable “recipes” for development tasks
-
-Markdown-based
-
-Examples:
-
-“How to scaffold a React component”
-
-“How to create a Prisma model”
-
-“How to write a PRD”
-
-“How to set up GitHub Actions”
-
-6.3 Snippet Library
-Store reusable code snippets
-
-Tag snippets (React, Prisma, SQL, Bash, etc.)
-
-Copy-to-clipboard functionality
-
-6.4 Activity Log / Timeline
-Log completed tasks
-
-Log commits (optional GitHub integration)
-
-Log PR merges
-
-Log notes
-
-6.5 Optional GitHub Integration
-Pull issues
-
-Pull PRs
-
-Pull commit history
-
-6.6 Optional Internal Helper Agents
 These are not required for the app to function but are ideal for practicing agent methodologies.
 
 Possible helper agents:
 
-Workflow recipe generator
+- Workflow recipe generator
+- Task breakdown generator
+- Code snippet generator
+- Documentation generator
 
-Task breakdown generator
+## 7. Technical Requirements
 
-Code snippet generator
+### Frontend
 
-Documentation generator
+- React
+- Vite
+- TypeScript
+- MUI or minimal custom styling
 
-7. Technical Requirements
-Frontend
-React
+### Backend
 
-Vite
-
-TypeScript
-
-MUI or minimal custom styling
-
-Backend
 Choose one:
 
-tRPC (recommended)
+- tRPC (recommended)
+- Express + REST
 
-Express + REST
+### Database
 
-Database
-Prisma
+- Prisma
+- SQLite (local dev)
+- Postgres (production optional)
 
-SQLite (local dev)
+### API Integrations
 
-Postgres (production optional)
+- GitHub REST API (optional)
 
-API Integrations
-GitHub REST API (optional)
+### Deployment
 
-Deployment
-Frontend: Vercel
+- Frontend: Vercel
+- Backend: Railway or Fly.io
 
-Backend: Railway or Fly.io
+## 8. AI Usage Plan (For Building the App)
 
-8. AI Usage Plan (For Building the App)
 AI tools are used to build the app, not power it.
 
-AI Tools to Use
-Copilot Chat for:
+### AI Tools to Use
 
-PRD generation
+#### Copilot Chat for:
 
-architecture planning
+- PRD generation
+- Architecture planning
+- Code scaffolding
+- Refactoring
+- Documentation
+- Test generation
 
-code scaffolding
+#### Copilot inline completions for:
 
-refactoring
+- Boilerplate code
+- Repetitive patterns
 
-documentation
+#### Copilot agents for:
 
-test generation
+- Generating component skeletons
+- Generating Prisma schema
+- Generating GitHub Actions
+- Generating test suites
 
-Copilot inline completions for:
+- GitHub Copilot for PR reviews
+- GitHub Actions for automated builds/tests
 
-boilerplate code
+### AI Methodologies to Practice
 
-repetitive patterns
+- Planner → Executor patterns
+- ReAct (reason + act)
+- Tool invocation patterns
+- Multi-agent orchestration
+- Structured prompting
+- Iterative refinement
 
-Copilot agents for:
+## 9. Success Metrics
 
-generating component skeletons
+### Primary
 
-generating Prisma schema
+- You successfully use AI tools throughout the entire development lifecycle
+- You complete the app with a clean, professional codebase
+- You establish a repeatable workflow for future projects
 
-generating GitHub Actions
+### Secondary
 
-generating test suites
+- Optional GitHub integration works
+- Optional helper agents work
+- Documentation is polished and complete
 
-GitHub Copilot for PR reviews
+## 10. Risks & Mitigations
 
-GitHub Actions for automated builds/tests
+- **Risk:** Scope creep  
+  **Mitigation:** Keep features minimal; follow the PRD strictly.
 
-AI Methodologies to Practice
-Planner → Executor patterns
+- **Risk:** Overuse of AI leading to unclear code  
+  **Mitigation:** Use AI for scaffolding, but manually refine final implementations.
 
-ReAct (reason + act)
+- **Risk:** GitHub API complexity  
+  **Mitigation:** Make GitHub integration optional.
 
-Tool invocation patterns
+## 11. Milestones
 
-Multi-agent orchestration
+### Milestone 1 — Planning
 
-Structured prompting
+- PRD
+- Architecture
+- Repo setup
 
-Iterative refinement
+### Milestone 2 — Scaffolding
 
-9. Success Metrics
-Primary
-You successfully use AI tools throughout the entire development lifecycle
+- Frontend structure
+- Backend structure
+- Prisma schema
 
-You complete the app with a clean, professional codebase
+### Milestone 3 — Core Features
 
-You establish a repeatable workflow for future projects
+- Task manager
+- Workflow recipes
+- Snippet library
+- Activity log
 
-Secondary
-Optional GitHub integration works
+### Milestone 4 — Optional Features
 
-Optional helper agents work
+- GitHub integration
+- Helper agents
 
-Documentation is polished and complete
+### Milestone 5 — Testing & Deployment
 
-10. Risks & Mitigations
-Risk: Scope creep
-Mitigation: Keep features minimal; follow PRD strictly.
+- Unit tests
+- Integration tests
+- CI/CD
+- Deployment
 
-Risk: Overuse of AI leading to unclear code
-Mitigation: Use AI for scaffolding, but manually refine final implementations.
+### Milestone 6 — Documentation
 
-Risk: GitHub API complexity
-Mitigation: Make GitHub integration optional.
-
-11. Milestones
-Milestone 1 — Planning
-PRD
-
-Architecture
-
-Repo setup
-
-Milestone 2 — Scaffolding
-Frontend structure
-
-Backend structure
-
-Prisma schema
-
-Milestone 3 — Core Features
-Task manager
-
-Workflow recipes
-
-Snippet library
-
-Activity log
-
-Milestone 4 — Optional Features
-GitHub integration
-
-Helper agents
-
-Milestone 5 — Testing & Deployment
-Unit tests
-
-Integration tests
-
-CI/CD
-
-Deployment
-
-Milestone 6 — Documentation
-README
-
-Architecture docs
-
-Workflow docs
-
-Demo GIF
+- README
+- Architecture docs
+- Workflow docs
+- Demo GIF
